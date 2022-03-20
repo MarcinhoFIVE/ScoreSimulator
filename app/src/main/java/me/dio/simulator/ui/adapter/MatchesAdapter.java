@@ -18,11 +18,9 @@ import me.dio.simulator.ui.DetailActivity;
 
 public class MatchesAdapter extends RecyclerView.Adapter<MatchesAdapter.ViewHolder> {
 
-    private final List<Match> Matches;
+    private List<Match> Matches;
 
-    public MatchesAdapter(List<Match> matches) {
-        this.Matches = matches;
-    }
+    public MatchesAdapter(List<Match> matches) { this.Matches = matches; }
 
     public List<Match> getMatches() {
         return Matches;
@@ -55,8 +53,8 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesAdapter.ViewHold
 
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, DetailActivity.class);
-            intent.putExtra(DetailActivity.Extras.MATCH, String.valueOf((match)));
-            context.startActivities(new Intent[]{intent});
+            intent.putExtra(DetailActivity.Extras.MATCH, match);
+            context.startActivity(intent);
         });
     }
 
